@@ -19,3 +19,9 @@ body::-webkit-scrollbar {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
+
+  body{
+    background-color: black;
+    padding: 0;
+    margin: 0;
+  }

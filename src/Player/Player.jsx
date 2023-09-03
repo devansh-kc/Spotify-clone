@@ -3,14 +3,19 @@ import "./Player.css";
 import Sidebar from "./Sidebar.jsx";
 import Body from "./Body";
 import Footer from "./Footer";
-function Player({ spotify }) {
+import { useDataLayerValue } from "../DataLayer";
+
+function Player({ spotify, track }) {
+  const [{ discover_weekly }, dispatch] = useDataLayerValue();
   return (
     <div className="player">
       <div className="player__body">
         <Sidebar />
         <Body spotify={spotify} />
       </div>
-      <Footer />
+      {discover_weekly?.tracks.items.map((item) => (
+        <Footer track={item.track} />
+      ))}
     </div>
   );
 }
